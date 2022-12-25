@@ -1,3 +1,5 @@
+package src;
+
 import java.util.Scanner;
 
 /**
@@ -40,7 +42,7 @@ public class Main {
         return potion;
     }
 
-    /**public static void main(String[] args) {
+    public static void main(String[] args) {
         bulkOfGame();
     }
     static void intro()
@@ -188,7 +190,7 @@ public class Main {
                     //crone option: Accept
                     case 1:
                         System.out.println("Accept");
-                        if (hero==true)
+                        /**if (hero==true)
                         {
                             vitality(true);
                             System.out.println("you're given a potion and feel great");
@@ -200,7 +202,7 @@ public class Main {
                         else
                         {
                             System.out.println("nothing happens");
-                        }
+                        }*/
                         hag=true;
                         break;
                     //crone option: Ignore
@@ -252,6 +254,6 @@ public class Main {
                 "|'|\"\"`\"\"|'|\n" +
                 "| | /^\\ | |\n" +
                 "|_|_|I|_|_|");
-    }*/
+    }
 
 }

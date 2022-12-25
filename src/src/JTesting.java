@@ -1,3 +1,5 @@
+package src;
+
 import java.util.Scanner;
 
 public class JTesting {
@@ -19,17 +21,19 @@ public class JTesting {
 
     static void intro()
     {
-        System.out.println("Hi!");
-        System.out.println("My name is En Pisee! And this is my game! I will be your narrator for this adventure."+
-                            "\nYou! Will be the hero of my story! Making challenging choices, taking horrifying risks,"+
-                            "\nand hopefully defeating the evil dragon and beat my game!!"+
-                            "\nAre you up for the challenge?"
-                            );
+        System.out.println(" WELCOME TO A TINY ADVENTURE");
+        System.out.println
+                (
+                        "My name in NPC i will be the narrator of this adventure.\n" +
+                                "Now lets Begin..."
+                );
+
         System.out.println
                 (
                         """
-                                1) 'Heck yes!!'
-                                2) 'WTF are you??'"""
+                                NPC welcome
+                                1) Progress
+                                2) Insult"""
                 );
         System.out.print("> ");
         Scanner keyboard = new Scanner(System.in);
@@ -39,12 +43,12 @@ public class JTesting {
         {
             //progress
             case 1:
-                System.out.println("'Heck yes!!'");
+                System.out.println("Progress");
                 break;
 
             //Go option 2
             case 2:
-                System.out.println("'WTF are you??'");
+                System.out.println("Insulted");
                 break;
         }
     }
@@ -53,15 +57,13 @@ public class JTesting {
         int i = 0;
         while (i < 5)
         {
-            System.out.println("You, in a world of dragons and knights in shining armour, find yourself in a village");
             System.out.println
                     (
-                            """
-                                    1) 'No, seriously. WTF are you?'
-                                    2) Take pity on the villagers
-                                    3) Sympathise with the villagers
-                                    4) Look at them in disgust
-                            """
+                            "En Pisee introduces the village and their story" +
+                                    "\n1) insult " +
+                                    "\n2) pity villagers " +
+                                    "\n3) Sympathise with villagers" +
+                                    "\n4) Look at them in disgust"
                     );
             System.out.print(">  ");
             Scanner keyboard = new Scanner(System.in);
@@ -70,25 +72,25 @@ public class JTesting {
             {
                 //village option: Insult
                 case 1:
-                    System.out.println("1)'No, seriously. WTF are you?'");
+                    System.out.println("Insult");
                     i = i+1;
                     //game over
                     break;
                 //village option: Pity
                 case 2:
                     i=6;
-                    System.out.println("2) Take pity on the villagers");
+                    System.out.println("Pity");
 
                     break;
                 //village option: Sympathise
                 case 3:
-                    System.out.println("3) Sympathise with the villagers");
+                    System.out.println("Sympathise");
                     i=6;
                     break;
 
                 //village option: disgust
                 case 4:
-                    System.out.println("4) Look at them in disgust");
+                    System.out.println("Disgust");
                     i=6;
                     break;
             }
@@ -164,10 +166,10 @@ public class JTesting {
                     System.out.println("Accept");
                     if (weapons() == 1) {
                         potion = true;
-                        System.out.println("you're given a potion");
+                        System.out.println("you're given a potion and feel great");
                         return potion;
                     } else if (weapons() == 2) {
-                        System.out.println("you drink the potion and nothing happens");
+                        System.out.println("you're given a potion and nothing happens");
                     } else {
                         System.out.println("nothing happens");
                     }
@@ -182,7 +184,15 @@ public class JTesting {
                 case 3:
                     System.out.println("Berate");
                     System.out.println("you become a cactus");
-                    restart();
+                    System.out.println("1) Restart" +
+                            "\n2) End Game");
+                    System.out.print(">  ");
+                    int cactus = Integer.parseInt(keyboard.next());
+                    if (cactus == 2) {
+                        gameOver();
+                        hag = true;
+                        break;
+                    }
                     break;
             }
         }
@@ -206,15 +216,12 @@ public class JTesting {
             {
                 case 1:
                     System.out.println("you drown");
-                    restart();
                     break;
                 case 2:
                     System.out.println("you both drown");
-                    restart();
                     break;
                 case 3:
                     System.out.println("you look cool... until you fall and drown");
-                    restart();
                     break;
                 case 4:
                     System.out.println("that works");
@@ -247,11 +254,10 @@ public class JTesting {
                     break;
                 case 2:
                     System.out.println("you fool");
-                    restart();
+
                     break;
                 case 3:
                     System.out.println("huh? what????");
-                    restart();
                     break;
                 case 4:
                     System.out.println("that worked?");
@@ -280,7 +286,6 @@ public class JTesting {
             {
                 case 1:
                     System.out.println("you died");
-                    restart();
                     break;
                 case 2:
                     System.out.println("Take the scenic route");
@@ -294,7 +299,6 @@ public class JTesting {
                     else
                     {
                         System.out.println("nope not carrying you");
-                        climbing = climbing+1;
                     }
                     break;
             }
@@ -328,11 +332,9 @@ public class JTesting {
                         switch (bats) {
                             case 1:
                                 System.out.println("you get swarmed");
-                                restart();
                                 break;
                             case 2:
                                 System.out.println("RUN AWAY");
-                                carve=6;
                                 break;
                         }
                         break;
@@ -344,7 +346,6 @@ public class JTesting {
                     break;
                 case 3:
                     System.out.println("caving accident");
-                    restart();
                     break;
 
             }
@@ -369,7 +370,6 @@ public class JTesting {
             {
                 case 1:
                     System.out.println("you die");
-                    restart();
                     break;
                 case 2:
                     System.out.println("progress to challenge");
@@ -408,21 +408,18 @@ public class JTesting {
             switch (chal1)
             {
                 case 1:
-                    System.out.println("You run toward the dragon, diving to the left and narrowly missing the Dragon's lightening breath as it sizzles past you.");
+                    System.out.println("Progress");
                     challenge1=true;
                     dragonChallenge2();
                     break;
                 case 2:
-                    System.out.println("You charge the Dragon. Bellowing a battle cry. The Dragon rears back and electrocutes you with its lightening breath, turning you to ashe before you even get close.");
-                    restart();
+                    System.out.println("die");
                     break;
                 case 3:
-                    System.out.println("You start dancing. Your moves, incredible. Timing, immaculate. It's almost as if dancing was your true calling. The dragon, crushes you with it's colossal tail mid dance. It's a dragon fight! Not a dance contest.");
-                    restart();
+                    System.out.println("awesome dancing.. still die");
                     break;
                 case 4:
-                    System.out.println("With a look of disappointment, the dragon sighs and slaps you with its mighty claw. Sending you flying into the cave wall and killing you on impact.");
-                    restart();
+                    System.out.println("die");
                     break;
             }
         }
@@ -432,28 +429,28 @@ public class JTesting {
         boolean challenge2=false ;
         while (!challenge2)
         {
-            System.out.println("The Dragon growls. How dare this intruder insult them by not dying faster. They whirl around, their tail heading straight for you.");
-            System.out.println("1) Strike");
-            System.out.println("2) Dodge");
-            System.out.println("3) Leap");
+            System.out.println("""
+                    1) Strike
+                    2) dodge
+                    3) Leap
+                    """);
             System.out.print(">  ");
             Scanner keyboard = new Scanner(System.in);
             int chal2 = Integer.parseInt(keyboard.next());
             switch (chal2)
             {
                 case 1:
-                    System.out.println("You swing your mighty weapon. Carving through the tail, causing the Dragon to cry out in agony.");
+                    System.out.println("Progress");
                     challenge2=true;
                     dragonChallenge3();
                     break;
                 case 2:
-                    System.out.println("You drop and slide under the tail. Narrowly avoiding the tail as you feel the air rush over you from the tail swipe.");
+                    System.out.println("progress but only just");
                     challenge2=true;
                     dragonChallenge3();
                     break;
                 case 3:
-                    System.out.println("You leap into the air and get smacked by the tail. You fly into the air and just before you splat into the cave wall, you swear you hear the Dragon say 'HOME RUN!'. You then coat the wall in a new colour called hint of internal organs.");
-                    restart();
+                    System.out.println("die");
                     break;
             }
         }
@@ -463,27 +460,25 @@ public class JTesting {
         boolean challenge3=false ;
         while (!challenge3)
         {
-            System.out.println("'ENOUGH!!' The Dragon bellows! 'I will not have you insult my presence any longer!!' It charges you, looking to swallow you whole!");
-            System.out.println("1) Leap into the maw of the beast");
-            System.out.println("2) Dodge");
-            System.out.println("3) Charge");
+            System.out.println("""
+                    1) Leap into the maw of the beast
+                    2) Dodge
+                    3) Charge
+                    """);
             System.out.print(">  ");
             Scanner keyboard = new Scanner(System.in);
             int chal3 = Integer.parseInt(keyboard.next());
             switch (chal3)
             {
                 case 1:
-                    System.out.println("You leap into the maw of the Dragon. He swallows you whole and you feel yourself slide down the gullet of the beast. You don't have much time. You use all of your remaining strength to slice and cut the innards of the Dargon. You hear their muffled screams of pain, their cries of pain slowly being turned into gargled screams as blood fills their throat. However, it doesn't stop you being trapped inside them. Whether you drowned in the dragon's blood, suffocated inside them or died in their stomach. What is known though, is that you saved the village. Thanks to your heroic sacrifice, the village thrives. Stories are made in your name, a statue erected in the village square and the village will never forget the hero who sacrificed themselves, so they may live freely.");
-                    challenge3=true; //Ana, work out a way to set code for the alt endings depending on weapon
-                    neutralEnding();
+                    System.out.println("Good ending");
+                    challenge3=true;
                     break;
                 case 2:
                     System.out.println("progress but only just");
-                    restart();
                     break;
                 case 3:
                     System.out.println("die");
-                    restart();
                     break;
             }
         }
@@ -577,156 +572,12 @@ public class JTesting {
         }
     }
 
-    static void neutralEnding()
-    {
-        System.out.println("Yay! You beat the game!! You slew the dragon and saved the village!");
-        System.out.println("Pity you died though. You could have survived that fight and-");
-        System.out.println("Well, I can't say more.");
-        System.out.println("Thanks for playing!! Hope to see you again one day. Maybe I can tell you a different story.");
-        gameOver();
-    }
-
-    static void heroEnding()
-    {
-        System.out.println("You did it!! You saved the village and survived the final confrontation with the dragon!");
-        System.out.println("I'm really glad you got the Hero ending. I was really worried you might get the-");
-        System.out.println("...");
-        System.out.println("Thanks for playing!! Hope to see you again one day. Maybe I can tell you a different story.");
-        gameOver();
-    }
-
-    static void evilEnding()
-    {
-        System.out.println("Well, you did it. I guess.");
-        System.out.println("You killed the dragon, but then you enslaved the village. I'm surprised this was the route you took but you chose this.");
-        System.out.println("Could have been worse though!");
-        System.out.println("Thanks for playing!! Hope to see you again one day. Maybe I can tell you a different story.");
-        gameOver();
-    }
-
-    static void wtfEnding1()
-    {
-        System.out.println("Yay! Y-You did it!! You saved the village! The dragon is dead!");
-        System.out.println("Thanks for playing! I'm g-going to leave now!");
-        System.out.println("1) Walk to the village...");
-        Scanner keyboard = new Scanner(System.in);
-        int wtf1 = Integer.parseInt(keyboard.next());
-        if (wtf1 == 1)
-        {
-            wtfEnding2();
-        }
-        else {
-            wtfEnding2();
-        }
-    }
-
-    static void wtfEnding2()
-    {
-        System.out.println("What are you doing? The game's over. You can stop playing now!");
-        System.out.println("1) Walk up to a villager...");
-        Scanner keyboard = new Scanner(System.in);
-        int wtf1 = Integer.parseInt(keyboard.next());
-        if (wtf1 == 1)
-        {
-            wtfEnding3();
-        }
-        else {
-            wtfEnding3();
-        }
-    }
-
-    static void wtfEnding3()
-    {
-        System.out.println("The game is done! You can leave now!");
-        System.out.println("1) Burn a villager...");
-        Scanner keyboard = new Scanner(System.in);
-        int wtf1 = Integer.parseInt(keyboard.next());
-        if (wtf1 == 1)
-        {
-            wtfEnding4();
-        }
-        else {
-            wtfEnding4();
-        }
-    }
-
-    static void wtfEnding4()
-    {
-        System.out.println("'The villager screams as they are burnt alive'");
-        System.out.println("I-I didn't say that! That's not my story!");
-        System.out.println("1) Light and throw the bomb...");
-        Scanner keyboard = new Scanner(System.in);
-        int wtf1 = Integer.parseInt(keyboard.next());
-        if (wtf1 == 1)
-        {
-            wtfEnding5();
-        }
-        else {
-            wtfEnding5();
-        }
-    }
-
-    static void wtfEnding5()
-    {
-        System.out.println("'The bomb explodes. Villagers scream as their homes are destroyed. The explosion causes a fire which spreads to the rest of the close knit village. Smoke billows from every house and building.'");
-        System.out.println("Stop it! Stop ruining my game!!");
-        System.out.println("1) Walk towards En Pisee...");
-        Scanner keyboard = new Scanner(System.in);
-        int wtf1 = Integer.parseInt(keyboard.next());
-        if (wtf1 == 1)
-        {
-            wtfEnding6();
-        }
-        else {
-            wtfEnding6();
-        }
-    }
-
-    static void wtfEnding6()
-    {
-        System.out.println("Wait, no. Keep back!");
-        System.out.println("1) Burn En Pisee...");
-        Scanner keyboard = new Scanner(System.in);
-        int wtf1 = Integer.parseInt(keyboard.next());
-        if (wtf1 == 1)
-        {
-            wtfEnding7();
-        }
-        else {
-            wtfEnding7();
-        }
-    }
-
-    static void wtfEnding7()
-    {
-        String scream = "AAAAAAAAAAAAAAAAA";
-        for (int A = 0; A < 50; A++)
-            System.out.print(scream);
-        gameOver();
-    }
-    static void restart()
-    {
-        System.out.println("1) Restart game");
-        System.out.println("2) Try again");
-        System.out.println("3) End game");
-        Scanner keyboard = new Scanner(System.in);
-        int restartOption = Integer.parseInt(keyboard.next());
-        if (restartOption == 1) {
-            System.exit(0);
-        }
-        else if (restartOption == 2) {
-
-        }
-        else if (restartOption == 3) {
-            gameOver();
-        }
-    }
 
     static void gameOver()
     {
         System.out.println("<  Game Over  >");
         System.out.println("<   Made By   >");
-        System.out.println("<  Johnathan and Ana  >");
-        System.exit(0);
+        System.out.println("<  Johnathan  >");
+
     }
 }
