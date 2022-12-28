@@ -1,6 +1,6 @@
 import java.util.Scanner;
-
 public class JTesting {
+
     public static void main(String[] args) {
         //start of the game
         intro();
@@ -13,9 +13,6 @@ public class JTesting {
         cave();
         dragon();
     }
-
-
-
 
     static void intro()
     {
@@ -96,7 +93,8 @@ public class JTesting {
         if (i == 5)
         {
             //NPC leaves ending
-            System.out.println("NPC leaves");
+            System.out.println("Ok! That does it!! If you're just going to be rude! I won't tell you my excellent story.");
+            System.out.println("Good bye!!");
             gameOver();
         }
     }
@@ -112,14 +110,14 @@ public class JTesting {
                 );
         System.out.print(">  ");
         Scanner keyboard = new Scanner(System.in);
-        int weaponChoise = Integer.parseInt(keyboard.next());
+        int weaponChoice = Integer.parseInt(keyboard.next());
         int weapon = 0;
-        switch (weaponChoise)
+        switch (weaponChoice)
         {
             //weapon option: Sword and shield
             case 1:
                 System.out.println("Sword and shield");
-                weapon= 1;
+                weapon = 1;
 
                 break;
             //weapon option: Long Sword
@@ -138,7 +136,6 @@ public class JTesting {
             case 4:
                 System.out.println("Lighter");
                 weapon = 4;
-
                 break;
         }
         return weapon;
@@ -147,6 +144,7 @@ public class JTesting {
     {
         boolean hag = false;
         boolean potion = false;
+
         while (hag == false) {
             System.out.println
                     (
@@ -157,12 +155,13 @@ public class JTesting {
                     );
             System.out.print(">  ");
             Scanner keyboard = new Scanner(System.in);
+
             int crone = Integer.parseInt(keyboard.next());
             switch (crone) {
                 //crone option: Accept
                 case 1:
                     System.out.println("Accept");
-                    if (weapons() == 1) {
+                    if (weapon == 1) {
                         potion = true;
                         System.out.println("you're given a potion");
                         return potion;
@@ -182,8 +181,8 @@ public class JTesting {
                 case 3:
                     System.out.println("Berate");
                     System.out.println("you become a cactus");
-                    restart();
                     break;
+
             }
         }
         return potion;
@@ -254,15 +253,17 @@ public class JTesting {
                     restart();
                     break;
                 case 4:
+                }
                     System.out.println("that worked?");
                     what2do=true;
                     bomb=1;
                     break;
             }
-
-        }
         return bomb;
+
     }
+
+
     private static void climb()
     {
         int climbing=0 ;
@@ -520,6 +521,7 @@ public class JTesting {
     private static void dragonSneak2()
     {
         boolean sneak2=false ;
+
         while (!sneak2)
         {
             System.out.println("""
@@ -706,27 +708,33 @@ public class JTesting {
     }
     static void restart()
     {
-        System.out.println("1) Restart game");
-        System.out.println("2) Try again");
-        System.out.println("3) End game");
+        System.out.println("1) Try again");
+        System.out.println("2) End game");
         Scanner keyboard = new Scanner(System.in);
         int restartOption = Integer.parseInt(keyboard.next());
-        if (restartOption == 1) {
-            System.exit(0);
+        switch (restartOption) {
+            case 1:
+                intro();
+                break;
+            case 2:
+                gameOver();
+                break;
         }
-        else if (restartOption == 2) {
 
-        }
-        else if (restartOption == 3) {
-            gameOver();
-        }
+    }
+
+    public int getWeapon () {
+        int weapon = 0;
+        return weapon;
     }
 
     static void gameOver()
     {
+        System.out.print("");
         System.out.println("<  Game Over  >");
-        System.out.println("<   Made By   >");
+        System.out.println("<  Made By   >");
         System.out.println("<  Johnathan and Ana  >");
+        System.out.print("");
         System.exit(0);
     }
 }
