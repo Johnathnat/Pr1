@@ -1,6 +1,12 @@
 import java.util.Scanner;
+
+
 public class JTesting {
 
+    private static int weapon;
+
+    public enum Weapons{none, swordAndShield, longSword, darkDagger, lighter};
+    public static Weapons myWeapon = Weapons.none;
     public static void main(String[] args) {
         //start of the game
         intro();
@@ -17,16 +23,21 @@ public class JTesting {
     static void intro()
     {
         System.out.println("Hi!");
-        System.out.println("My name is En Pisee! And this is my game! I will be your narrator for this adventure."+
-                            "\nYou! Will be the hero of my story! Making challenging choices, taking horrifying risks,"+
-                            "\nand hopefully defeating the evil dragon and beat my game!!"+
-                            "\nAre you up for the challenge?"
-                            );
         System.out.println
                 (
                         """
-                                1) 'Heck yes!!'
-                                2) 'WTF are you??'"""
+                            My name is En Pisee! And this is my game! I will be your narrator for this adventure.
+                            You! Will be the hero of my story! Making challenging choices, taking horrifying risks,
+                            and hopefully defeating the evil dragon and beat my game!!
+                            Are you up for the challenge?
+                        """
+                );
+        System.out.println
+                (
+                        """
+                            1) 'Heck yes!!'
+                            2) 'WTF are you??'
+                        """
                 );
         System.out.print("> ");
         Scanner keyboard = new Scanner(System.in);
@@ -50,16 +61,23 @@ public class JTesting {
         int i = 0;
         while (i < 5)
         {
-            System.out.println("You, in a world of dragons and knights in shining armour, find yourself in a village");
-            System.out.println
-                    (
-                            """
-                                    1) 'No, seriously. WTF are you?'
-                                    2) Take pity on the villagers
-                                    3) Sympathise with the villagers
-                                    4) Look at them in disgust
-                            """
-                    );
+            System.out.println(
+                    """
+                            You, in a world of dragons and knights in shining armour, find yourself in a village.
+                            The village people are tired and ragged. Labouring long hours to appease the great,
+                            blue dragon who over sees the village. It demands that all food and precious materials
+                            of the village be given to them. The villagers are barely able to keep themselves alive
+                            whilst keeping the dragon from killing them all.
+                    """
+            );
+            System.out.println(
+                    """
+                            1) 'No, seriously. WTF are you?'
+                            2) Take pity on the villagers
+                            3) Sympathise with the villagers
+                            4) Look at them in disgust
+                    """
+            );
             System.out.print(">  ");
             Scanner keyboard = new Scanner(System.in);
             int village = Integer.parseInt(keyboard.next());
@@ -100,18 +118,25 @@ public class JTesting {
     }
     private static int weapons()
     {
-        System.out.println
-                (
-                        "En Pisee sets player up to pick their items" +
-                                "\n1) Sword and shield " +
-                                "\n2) Long Sword " +
-                                "\n3) Dark Dagger" +
-                                "\n4) Lighter"
+        System.out.println(
+                """
+                        You decide to take action and attempt to slay the dragon, freeing the villagers
+                        from their bindings so that they might live. You head to the local weapons
+                        merchant and find 4 weapons. Which do you take?
+                """);
+        System.out.println(
+                """
+                                1) Sword and shield
+                                2) Long Sword
+                                3) Dark Dagger
+                                4) Lighter
+                """
                 );
         System.out.print(">  ");
         Scanner keyboard = new Scanner(System.in);
         int weaponChoice = Integer.parseInt(keyboard.next());
-        int weapon = 0;
+
+        weapon = 0;
         switch (weaponChoice)
         {
             //weapon option: Sword and shield
@@ -146,13 +171,17 @@ public class JTesting {
         boolean potion = false;
 
         while (hag == false) {
-            System.out.println
-                    (
-                            "An old crone. Offering aid to the player." +
-                                    "\n1) Accept" +
-                                    "\n2) Ignore" +
-                                    "\n3) Berate"
-                    );
+            System.out.println(
+                   """
+                            You venture toward the Dragon's cave. An old crone approaches you, offering you
+                            aid. Do you accept?
+                    """);
+            System.out.println(
+                    """
+                            1) Accept
+                            2) Ignore
+                            3) Berate
+                    """);
             System.out.print(">  ");
             Scanner keyboard = new Scanner(System.in);
 
@@ -163,25 +192,39 @@ public class JTesting {
                     System.out.println("Accept");
                     if (weapon == 1) {
                         potion = true;
-                        System.out.println("you're given a potion");
+                        System.out.println(
+                                """
+                                            She hands you a potion. It glows with a mysterious power. You store it for later.
+                                """);
                         return potion;
-                    } else if (weapons() == 2) {
-                        System.out.println("you drink the potion and nothing happens");
-                    } else {
-                        System.out.println("nothing happens");
+                    }
+                    else {
+                        System.out.println(
+                                """
+                                            She hands you a potion. You drink the potion but nothing happens.
+                                """);
                     }
                     hag = true;
                     break;
-                //crone option: Ignore
-                case 2:
-                    System.out.println("Ignore");
-                    hag = true;
-                    break;
-                //crone option: Berate
-                case 3:
-                    System.out.println("Berate");
-                    System.out.println("you become a cactus");
-                    break;
+                    //crone option: Ignore
+            case 2:
+                System.out.println(
+                        """
+                                You ignore the crone. She smelt funny anyway.
+                        """);
+                hag = true;
+                break;
+            //crone option: Berate
+            case 3:
+                System.out.println(
+                        """         
+                                'Be gone from my sight, you foul smelling wench!' You sneer. The crone
+                                smiles. Her yellow teeth showing the many years of dental neglect as a
+                                strange, green smoke surrounds the pair of you. You feel strange. Prickly
+                                even. You can't see, but you have been turned into a cactus.
+                        """);
+                restart();
+                break;
 
             }
         }
@@ -192,34 +235,39 @@ public class JTesting {
         boolean crossing=false;
         while (crossing==false)
         {
-            System.out.println("""
-                    Venture across river
-                    1) Swim through
-                    2) Grab a nearby person and use them to get across
-                    3) Hop across rocks
-                    4) Take the bridge""");
+            System.out.println(
+                    """
+                            You leave the village and come across a river. The current is strong. You can see the water
+                            crashing into the rocks. What do you do?
+                    """);
+            System.out.println(
+                    """
+                            1) Swim through
+                            2) Grab a nearby person and use them to get across
+                            3) Hop across rocks
+                            4) Take the bridge
+                    """);
             System.out.print(">  ");
             Scanner keyboard = new Scanner(System.in);
             int river = Integer.parseInt(keyboard.next());
             switch (river)
             {
                 case 1:
-                    System.out.println("you drown");
+                    System.out.println("You jump into the water. The current carries you away, causing you to drown.");
                     restart();
                     break;
                 case 2:
-                    System.out.println("you both drown");
+                    System.out.println("You grab a nearby villager and attempt to use him as a raft. You both drown. No clue what you were expecting here.");
                     restart();
                     break;
                 case 3:
-                    System.out.println("you look cool... until you fall and drown");
+                    System.out.println("You look cool... until you slip on a mossy rock and fall and drown");
                     restart();
                     break;
                 case 4:
-                    System.out.println("that works");
+                    System.out.println("Using common sense, you walk to and cross over using the nearby bridge.");
                     crossing=true;
                     break;
-
             }
         }
     }
@@ -229,38 +277,48 @@ public class JTesting {
         boolean what2do=false;
         while (what2do==false)
         {
-            System.out.println("""
-                    1) Throw bomb
-                    2) Hold on to bomb (kills player, reset option)
-                    3) Give bomb to En Pisee (kills En Pisee, restart game or section)
-                    4) Extinguish bomb (if lighter held)
-                                      """);
+            System.out.println(
+                    """
+                            You venture on. Eventually, coming across an ornate chest! You open the chest and reach inside an-
+                            OH MY GOD!!! IT'S A LIT BOMB!! Quick! Throw it away!!
+                    """);
+            System.out.println(
+                    """
+                            1) Throw bomb
+                            2) Hold on to bomb (kills player, reset option)
+                            3) Give bomb to En Pisee (kills En Pisee, restart game or section)
+                            4) Extinguish bomb (if lighter held)
+                    """);
             System.out.print(">  ");
             Scanner keyboard = new Scanner(System.in);
             int quickThink = Integer.parseInt(keyboard.next());
             switch (quickThink)
             {
                 case 1:
-                    System.out.println("Throws bomb");
+                    System.out.println("You hurl the bomb away and it explodes harmlessly.");
                     what2do=true;
                     break;
                 case 2:
-                    System.out.println("you fool");
+                    System.out.println("What? Why would yo-");
+                    System.out.println("The bomb explodes in your hands. Sending pieces of you flying everywhere.");
                     restart();
                     break;
                 case 3:
                     System.out.println("huh? what????");
-                    restart();
+                    gameOver();
                     break;
                 case 4:
                 }
-                    System.out.println("that worked?");
+                    System.out.println(
+                    """
+                            You use the lid of the lighter to extinguish the fuse on the bomb. I have no clue how that worked.
+                    """);
+            //if lighter held can pick, if not, blows up
                     what2do=true;
                     bomb=1;
                     break;
             }
         return bomb;
-
     }
 
 
@@ -269,10 +327,16 @@ public class JTesting {
         int climbing=0 ;
         while (climbing<5)
         {
-            System.out.println("""
-                    1) Scale unsafe cliffside (player dies, reset option)
-                    2) Take the scenic route (progress)
-                    3) Wait for a lift (loop option, will loop 5 times until En Pisee gets bored and makes the player walk to progress)
+            System.out.println(
+                    """
+                            You start getting closer to the cave, but the only way to get to the cave seems to be up
+                            a dangerous cliff side. What do you do?
+                    """);
+            System.out.println(
+                    """
+                            1) Scale unsafe cliffside (player dies, reset option)
+                            2) Take the scenic route (progress)
+                            3) Wait for a lift 
                     """);
             System.out.print(">  ");
             Scanner keyboard = new Scanner(System.in);
@@ -280,21 +344,29 @@ public class JTesting {
             switch (route)
             {
                 case 1:
-                    System.out.println("you died");
+                    System.out.println(
+                            """
+                                    You attempt to scale the cliff, but a rock breaks as you push off and you fall and
+                                    become a pizza splat on the ground.
+                            """);
                     restart();
                     break;
                 case 2:
-                    System.out.println("Take the scenic route");
+                    System.out.println(
+                            """
+                                    You take the scenic route. Taking in the beautiful views as you safely make your
+                                    way to the top.
+                            """);
                     climbing=5;
                     break;
                 case 3:
                     if (climbing==5)
                     {
-                        System.out.println("omg just go");
+                        System.out.println("Oh for god's sake. Just go!");
                     }
                     else
                     {
-                        System.out.println("nope not carrying you");
+                        System.out.println("You wait for a lift, but no one comes.");
                         climbing = climbing+1;
                     }
                     break;
@@ -306,10 +378,18 @@ public class JTesting {
         int carve=0 ;
         while (carve<5)
         {
-            System.out.println("""
-                    1) Say hi to bats (trigger bat encounter)
-                    2) Use weapon on broken wall (progress)
-                    3) Walk through dangerous cave (killed by stilagtite? Stilagmite? The pointy ceiling things. Restart option)
+            System.out.println(
+                    """
+                            You reach the Dragon's cave. Walking through the dark tunnels, you find it hard to
+                            navigate through. You trip on a rock that you didn't see, and 100 red eyes appear
+                            from the ceiling. A swarm of bats charge towards you!
+                            
+                    """);
+            System.out.println(
+                    """
+                            1) Say hi to bats (trigger bat encounter)
+                            2) Use weapon on broken wall (progress)
+                            3) Run through dangerous cave (killed by stilagtite? Stilagmite? The pointy ceiling things. Restart option)
                     """);
             System.out.print(">  ");
             Scanner keyboard = new Scanner(System.in);
@@ -321,18 +401,23 @@ public class JTesting {
                     while (batEncounter<1)
                     {
                         batEncounter=batEncounter+1;
-                        System.out.println("""
-                                bat encounter
-                                1) Remain friendly (swarmed by 100 bats and killed, restart option)
-                                2) Run and hide (back to cave options without bat option)""");
+                        System.out.println(
+                                """
+                                        The bats still charge towards you!
+                                """);
+                        System.out.println(
+                                """
+                                        1) Remain friendly
+                                        2) Run and hide (back to cave options without bat option)
+                                """);
                         int bats = Integer.parseInt(keyboard.next());
                         switch (bats) {
                             case 1:
-                                System.out.println("you get swarmed");
+                                System.out.println("You are swarmed by the bats. When they finally leave, the only thing left of you is a skeleton.");
                                 restart();
                                 break;
                             case 2:
-                                System.out.println("RUN AWAY");
+                                System.out.println("You duck behind rock and the bats rush by.");
                                 carve=6;
                                 break;
                         }
@@ -340,11 +425,15 @@ public class JTesting {
                     }
                     System.out.println("Option not available");
                 case 2:
-                    System.out.println("progress");
+                    System.out.println("You take your weapon and break a near by wall and get away from the bats.");
                     carve=6;
                     break;
                 case 3:
-                    System.out.println("caving accident");
+                    System.out.println(
+                            """
+                                    You run through the dark cave. Running into a wall and causing a stalagmite...
+                                    stalactite? One of those point rock thingies to fall on top of you.
+                            """);
                     restart();
                     break;
 
@@ -356,12 +445,17 @@ public class JTesting {
         int meetingDragon=0 ;
         while (meetingDragon<5)
         {
-            System.out.println("""
-                    1) Insult dragon (killed by lightening breath)
-                    2) Challenge (initiate fight)
-                    3) Drink potion (if sword and shield AND took potion)
-                    4) Sneak up to dragon (able to sneak behind them)
-                                                                                                                
+            System.out.println(
+                    """
+                            Finally, you reach the Dragon's lair. The hulking, beast lays resting atop its hoard.
+                            How do you approach?
+                    """);
+            System.out.println(
+                    """
+                            1) Insult the dragon
+                            2) Challenge
+                            3) Drink potion 
+                            4) Sneak up to dragon (able to sneak behind them)                                                                                      
                     """);
             System.out.print(">  ");
             Scanner keyboard = new Scanner(System.in);
@@ -369,25 +463,64 @@ public class JTesting {
             switch (meeting)
             {
                 case 1:
-                    System.out.println("you die");
+                    System.out.println(
+                            """
+                                    'WAKE UP YOU SCALEY GIT!' You yell. The Dragon opens one eye, looks at you,
+                                    and with a yawn opens it's maw and blasts you with it's ning breath. Killing
+                                    you instantly.
+                            """);
                     restart();
                     break;
                 case 2:
-                    System.out.println("progress to challenge");
+                    System.out.println(
+                            """
+                                    'I challenge thee, vile beast!' You bellow.
+                            """);
                     meetingDragon=6;
                     dragonChallenge1();
 
                     break;
                 case 3:
-                    if (oldCrone()==true)
-                        System.out.println("progress to challenge with potion with sword and shield");
+                    if (oldCrone()==true) {
+                        System.out.println(
+                                """
+                                        You chug the entirety of your potion, throw the glass down on the ground
+                                        and yell 'Awaken, vile beast, you shall torment the good people of that
+                                        village any longer!'
+                                """);
+                        }
+                    else {
+                        System.out.println(
+                                """
+                                        You reach for a potion you don't have, shrug and call the dragon a cunt.
+                                        It bolts up and glares at you.
+                                """);
+                    }
                     meetingDragon=6;
                     dragonChallenge1();
                     break;
                 case 4:
                     System.out.println("progress to sneak");
+                    if (myWeapon == Weapons.darkDagger || Weapons.lighter) {
+                        System.out.println(
+                                """
+                                        You duck down low and cautiously make your way behind the dragon. Slowly
+                                        making your way past the beast's hoarded treasures.
+                                """);
+                        dragonSneak1();
+                    }
+                    else {
+                        System.out.println(
+                                """
+                                        You duck down low and cautiously make your way behind the dragon. However,
+                                        you trip on an unseen rock and collapse onto the treasure. You hope the noise
+                                        did not wake the beast. You look up to see it staring down at you. 'Nice try.'
+                                        It scoffs before biting and swallowing you whole.
+                                """);
+                        restart();
+                    }
+
                     meetingDragon=6;
-                    dragonSneak1();
                     break;
             }
         }
@@ -397,11 +530,17 @@ public class JTesting {
         boolean challenge1=false ;
         while (!challenge1)
         {
-            System.out.println("""
-                    1) Dodge
-                    2) Charge
-                    3) dance off
-                    4) just a joke bro!                                                                                       
+            System.out.println(
+                    """
+                            The Dragon stands atop it' hoard, staring you down. It's chest inflates and it's eyes
+                            glow an electric blue as it readies it's lightening breath toward you.
+                    """);
+            System.out.println(
+                    """
+                            1) Dodge
+                            2) Charge
+                            3) Dance off
+                            4) Just a joke bro!                                                                                       
                     """);
             System.out.print(">  ");
             Scanner keyboard = new Scanner(System.in);
@@ -409,20 +548,37 @@ public class JTesting {
             switch (chal1)
             {
                 case 1:
-                    System.out.println("You run toward the dragon, diving to the left and narrowly missing the Dragon's lightening breath as it sizzles past you.");
+                    System.out.println(
+                    """
+                            You run toward the dragon, diving to the left and narrowly missing the Dragon's
+                            lightening breath as it sizzles past you.
+                    """);
                     challenge1=true;
                     dragonChallenge2();
                     break;
                 case 2:
-                    System.out.println("You charge the Dragon. Bellowing a battle cry. The Dragon rears back and electrocutes you with its lightening breath, turning you to ashe before you even get close.");
+                    System.out.println(
+                    """
+                            You charge the Dragon. Bellowing a battle cry. The Dragon rears back and electrocutes
+                            you with its lightening breath, turning you to ashe before you even get close.
+                    """);
                     restart();
                     break;
                 case 3:
-                    System.out.println("You start dancing. Your moves, incredible. Timing, immaculate. It's almost as if dancing was your true calling. The dragon, crushes you with it's colossal tail mid dance. It's a dragon fight! Not a dance contest.");
+                    System.out.println(
+                    """
+                            You start dancing. Your moves, incredible. Timing, immaculate. It's almost as if 
+                            dancing was your true calling. The dragon, crushes you with it's colossal tail mid 
+                            dance. It's a dragon fight! Not a dance contest.
+                    """);
                     restart();
                     break;
                 case 4:
-                    System.out.println("With a look of disappointment, the dragon sighs and slaps you with its mighty claw. Sending you flying into the cave wall and killing you on impact.");
+                    System.out.println(
+                    """
+                            With a look of disappointment, the dragon sighs and slaps you with its mighty claw. 
+                            Sending you flying into the cave wall and killing you on impact.
+                    """);
                     restart();
                     break;
             }
@@ -433,27 +589,47 @@ public class JTesting {
         boolean challenge2=false ;
         while (!challenge2)
         {
-            System.out.println("The Dragon growls. How dare this intruder insult them by not dying faster. They whirl around, their tail heading straight for you.");
-            System.out.println("1) Strike");
-            System.out.println("2) Dodge");
-            System.out.println("3) Leap");
+            System.out.println(
+            """
+                    The Dragon growls. How dare this intruder insult them by not dying faster. They whirl around,
+                    their tail heading straight for you.
+            """);
+            System.out.println(
+            """
+                    1) Strike
+                    2) Dodge");
+                    3) Leap
+            """);
             System.out.print(">  ");
             Scanner keyboard = new Scanner(System.in);
             int chal2 = Integer.parseInt(keyboard.next());
             switch (chal2)
             {
                 case 1:
-                    System.out.println("You swing your mighty weapon. Carving through the tail, causing the Dragon to cry out in agony.");
+                    System.out.println(
+                            """
+                                    You swing your mighty weapon. Carving through the tail, causing the Dragon to 
+                                    cry out in agony.
+                            """);
                     challenge2=true;
                     dragonChallenge3();
                     break;
                 case 2:
-                    System.out.println("You drop and slide under the tail. Narrowly avoiding the tail as you feel the air rush over you from the tail swipe.");
+                    System.out.println(
+                            """
+                                You drop and slide under the tail. Narrowly avoiding the tail as you feel the air 
+                                rush over you from the tail swipe.
+                            """);
                     challenge2=true;
                     dragonChallenge3();
                     break;
                 case 3:
-                    System.out.println("You leap into the air and get smacked by the tail. You fly into the air and just before you splat into the cave wall, you swear you hear the Dragon say 'HOME RUN!'. You then coat the wall in a new colour called hint of internal organs.");
+                    System.out.println(
+                            """
+                                You leap into the air and get smacked by the tail. You fly into the air and just 
+                                before you splat into the cave wall, you swear you hear the Dragon say 'HOME RUN!'.
+                                You then coat the wall in a new colour called hint of internal organs.
+                            """);
                     restart();
                     break;
             }
@@ -464,26 +640,69 @@ public class JTesting {
         boolean challenge3=false ;
         while (!challenge3)
         {
-            System.out.println("'ENOUGH!!' The Dragon bellows! 'I will not have you insult my presence any longer!!' It charges you, looking to swallow you whole!");
-            System.out.println("1) Leap into the maw of the beast");
-            System.out.println("2) Dodge");
-            System.out.println("3) Charge");
+            System.out.println(
+                    """
+                            'ENOUGH!!' The Dragon bellows! 'I will not have you insult my presence any longer!!'
+                             It charges you, looking to swallow you whole!
+                    """);
+            System.out.println(
+                    """
+                            1) Leap into the maw of the beast
+                            2) Dodge
+                            3) Charge
+                    """);
             System.out.print(">  ");
             Scanner keyboard = new Scanner(System.in);
             int chal3 = Integer.parseInt(keyboard.next());
             switch (chal3)
             {
                 case 1:
-                    System.out.println("You leap into the maw of the Dragon. He swallows you whole and you feel yourself slide down the gullet of the beast. You don't have much time. You use all of your remaining strength to slice and cut the innards of the Dargon. You hear their muffled screams of pain, their cries of pain slowly being turned into gargled screams as blood fills their throat. However, it doesn't stop you being trapped inside them. Whether you drowned in the dragon's blood, suffocated inside them or died in their stomach. What is known though, is that you saved the village. Thanks to your heroic sacrifice, the village thrives. Stories are made in your name, a statue erected in the village square and the village will never forget the hero who sacrificed themselves, so they may live freely.");
+                    if (myWeapon == Weapons.swordAndShield && potion=true){
+                        System.out.println(
+                                """
+                                                You leap into the maw of the Dragon. He swallows you whole and you feel yourself slide
+                                                down the gullet of the beast. You don't have much time. You use all of your remaining
+                                                strength to slice and cut the innards of the Dragon. You hear their muffled screams of
+                                                pain, their cries of pain slowly being turned into gargled screams as blood fills their
+                                                throat. You fear that you may not survive the insides of the dragon, even though you
+                                                slew the beast. However, the potion you drank gave you the resiliance to not only 
+                                                survive, but cut your way out. You saved the village and lived to tell the tale. Thanks
+                                                to you, the village thrives. Your story is shared across the land, a statue erected in
+                                                the village square and you are heralded as a hero.
+                                """);
+                        heroEnding();
+                    }
+                    else {
+                        System.out.println(
+                                """
+                                                You leap into the maw of the Dragon. He swallows you whole and you feel yourself slide
+                                                down the gullet of the beast. You don't have much time. You use all of your remaining
+                                                strength to slice and cut the innards of the Dragon. You hear their muffled screams of
+                                                pain, their cries of pain slowly being turned into gargled screams as blood fills their
+                                                throat. However, it doesn't stop you being trapped inside them. Whether you drowned in
+                                                the dragon's blood, suffocated inside them or died in their stomach. What is known 
+                                                though, is that you saved the village. Thanks to your heroic sacrifice, the village 
+                                                thrives. Stories are made in your name, a statue erected in the village square and the
+                                                village will never forget the hero who sacrificed themselves, so they may live freely.
+                                        """);
+                        neutralEnding();
+                    }
                     challenge3=true; //Ana, work out a way to set code for the alt endings depending on weapon
-                    neutralEnding();
                     break;
                 case 2:
-                    System.out.println("progress but only just");
+                    System.out.println(
+                    """
+                            You attempt to dodge again, but you only move yourself directly into the dragon's
+                            teeth as it's jaw clamps down, carving your body in two.
+                    """);
                     restart();
                     break;
                 case 3:
-                    System.out.println("die");
+                    System.out.println(
+                    """
+                            You charge the beast, running straight into it's teeth. Resulting in you becoming
+                            a hard earned snack.
+                    """);
                     restart();
                     break;
             }
@@ -723,18 +942,24 @@ public class JTesting {
 
     }
 
-    public int getWeapon () {
-        int weapon = 0;
-        return weapon;
+    public class weapon {
+        private int weapon;
+        public int getWeapon() {
+            return weapon;
+        }
+        public void setWeapon(int newWeapon) {
+            this.weapon = newWeapon;
+        }
     }
 
     static void gameOver()
     {
         System.out.print("");
-        System.out.println("<  Game Over  >");
-        System.out.println("<  Made By   >");
-        System.out.println("<  Johnathan and Ana  >");
-        System.out.print("");
+        System.out.println("<  Game Over >");
+        System.out.println("<  Made By  >");
+        System.out.println("<  Johnathon and Ana  >");
+        System.out.println(" ");
         System.exit(0);
     }
+
 }
