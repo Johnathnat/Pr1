@@ -1,3 +1,5 @@
+package EnPiSee;
+
 import java.util.Scanner;
 
 public class Main {
@@ -10,8 +12,15 @@ public class Main {
      * public enum Weapons{none, swordAndShield, longSword, darkDagger, lighter};
      * public static Weapons myWeapon = Weapons.none;
      */
-    public void main(String[] args) {
+    public static void main(String[] args) {
         //start of the game
+        Main mane = new Main();
+        mane.game();
+    }
+
+    public void game()
+    {
+        player = new Player();
         intro();
         village();
         weapons();
@@ -22,7 +31,6 @@ public class Main {
         cave();
         dragon();
     }
-
     static void intro() {
         System.out.println("Hi!");
         System.out.println
@@ -213,7 +221,7 @@ public class Main {
 
     }
 
-    private static void river() {
+    private void river() {
         boolean crossing = false;
         while (crossing == false) {
             System.out.println(
@@ -252,7 +260,7 @@ public class Main {
         }
     }
 
-    private static int bomb() {
+    private int bomb() {
         int bomb = 0;
         boolean what2do = false;
         while (what2do == false) {
@@ -300,7 +308,7 @@ public class Main {
     }
 
 
-    private static void climb() {
+    private void climb() {
         int climbing = 0;
         while (climbing < 5) {
             System.out.println(
@@ -346,7 +354,7 @@ public class Main {
         }
     }
 
-    private static void cave() {
+    private void cave() {
         int carve = 0;
         while (carve < 5) {
             System.out.println(
@@ -956,19 +964,19 @@ public class Main {
 
     static void wtfEnding7() {
         String scream = "AAAAAAAAAAAAAAAAA";
-        for (int A = 0; A < 50; A++)
+        for (int A = 0; A < 100; A++)
             System.out.print(scream);
         gameOver();
     }
 
-    static void restart() {
+    void restart() {
         System.out.println("1) Try again");
         System.out.println("2) End game");
         Scanner keyboard = new Scanner(System.in);
         int restartOption = Integer.parseInt(keyboard.next());
         switch (restartOption) {
             case 1:
-                intro();
+                game();
                 break;
             case 2:
                 gameOver();
@@ -981,7 +989,7 @@ public class Main {
         System.out.print("");
         System.out.println("<  Game Over >");
         System.out.println("<  Made By  >");
-        System.out.println("<  Johnathon and Ana  >");
+        System.out.println("<  Ana and Johnathon  >");
         System.out.println(" ");
         System.exit(0);
     }

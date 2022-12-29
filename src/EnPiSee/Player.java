@@ -1,3 +1,5 @@
+package EnPiSee;
+
 public class Player {
     //private int weapon;
 
