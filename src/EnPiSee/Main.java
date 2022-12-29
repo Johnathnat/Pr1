@@ -260,10 +260,7 @@ public class Main {
         }
     }
 
-    private int bomb() {
-        int bomb = 0;
-        boolean what2do = false;
-        while (what2do == false) {
+    private void bomb() {
             System.out.println(
                     """
                                     You venture on. Eventually, coming across an ornate chest! You open the chest and reach inside an-
@@ -282,7 +279,6 @@ public class Main {
             switch (quickThink) {
                 case 1:
                     System.out.println("You hurl the bomb away and it explodes harmlessly.");
-                    what2do = true;
                     break;
                 case 2:
                     System.out.println("What? Why would yo-");
@@ -294,17 +290,21 @@ public class Main {
                     gameOver();
                     break;
                 case 4:
+                    System.out.println("Extinguish bomb");
+                    if(player.getWeapon() == Items.Weapons.lighter){
+                        this.player.seBomb(true);
+                        System.out.println(
+                                """
+                                                You use the lid of the lighter to put out the bomb fuse. I have no clue how that worked.
+                                        """);
+                    }
+                    else{
+                        System.out.println("You try to extinguish the bomb. To no avail. It explodes in your face.");
+                        break;
+                    }
+
             }
-            System.out.println(
-                    """
-                                    You use the lid of the lighter to extinguish the fuse on the bomb. I have no clue how that worked.
-                            """);
-            //if lighter held can pick, if not, blows up
-            what2do = true;
-            bomb = 1;
-            break;
-        }
-        return bomb;
+
     }
 
 
@@ -654,7 +654,7 @@ public class Main {
                                         """);
                         neutralEnding();
                     }
-                    challenge3 = true; //Ana, work out a way to set code for the alt endings depending on weapon
+                    challenge3 = true;
                     break;
                 case 2:
                     System.out.println(
@@ -745,16 +745,30 @@ public class Main {
             int sneaking2 = Integer.parseInt(keyboard.next());
             switch (sneaking2) {
                 case 1:
-                    System.out.println(
-                            """
-                                            You approach the tail of the Dragon. Pull out your lighter and ignite their
-                                            tail. The fire catches disturbingly well. The beast screams and fails as it
-                                            begins to burn. It's scales beginning to crisp and flake off the body whilst
-                                            it slowly burns to death. You slew the beast. The dragon is no more. Some
-                                            saying it's pained howls haunting the caves forever.
-                                    """);
-                    sneak2 = true;
-                    wtfEnding1();
+                    if(player.getWeapon() == Items.Weapons.lighter && player.getBomb()) {
+                        System.out.println(
+                                """
+                                                You approach the tail of the Dragon. Pull out your lighter and ignite their
+                                                tail. The fire catches disturbingly well. The beast screams and fails as it
+                                                begins to burn. It's scales beginning to crisp and flake off the body whilst
+                                                it slowly burns to death. You slew the beast. The dragon is no more. Some
+                                                saying it's pained howls haunting the caves forever.
+                                        """);
+                        sneak2 = true;
+                        wtfEnding1();
+                    }
+                    else {
+                        System.out.println(
+                                """
+                                                You approach the tail of the Dragon. Pull out your lighter and ignite their
+                                                tail. The fire catches disturbingly well. The beast screams and fails as it
+                                                begins to burn. It's scales beginning to crisp and flake off the body whilst
+                                                it slowly burns to death. You slew the beast. The dragon is no more. Some
+                                                saying it's pained howls haunting the caves forever.
+                                        """);
+                        sneak2 = true;
+                        evilEnding();
+                    }
                     break;
                 case 2:
                     System.out.println(
