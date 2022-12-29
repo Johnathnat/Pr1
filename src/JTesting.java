@@ -713,10 +713,16 @@ public class JTesting {
         boolean sneak1=false ;
         while (!sneak1)
         {
-            System.out.println("""
-                    1) Freeze
-                    2) Hide
-                    3) Say Hi
+            System.out.println(
+                    """
+                            You get behind the dragon, but you knock over some coins! The sound causes the dragon
+                            to raise it's head suddenly and start looking around.
+                    """);
+            System.out.println(
+                    """
+                            1) Freeze
+                            2) Hide
+                            3) Say Hi
                     """);
             System.out.print(">  ");
             Scanner keyboard = new Scanner(System.in);
@@ -724,15 +730,31 @@ public class JTesting {
             switch (sneaking1)
             {
                 case 1:
-                    System.out.println("die");
+                    System.out.println(
+                            """
+                                    You once heard that a dragon's vision is based on movement.
+                                    You heard wrong.
+                                    The Dragon crushes you with it's tail.
+                            """);
+                    restart();
                     break;
                 case 2:
-                    System.out.println("progress");
+                    System.out.println(
+                            """
+                                    You duck behind a pile of treasure. The Dragon takes a moment, before return to it's
+                                    rest.
+                            """);
                     sneak1=true;
                     dragonSneak2();
                     break;
                 case 3:
-                    System.out.println("you die");
+                    System.out.println(
+                            """
+                                    The Dragon looks at you, bewildered. Then smiles.
+                                    'Goodbye.'
+                                    It blasts you with it's lightening breath.
+                            """);
+                    restart();
                     break;
             }
         }
@@ -743,10 +765,16 @@ public class JTesting {
 
         while (!sneak2)
         {
-            System.out.println("""
-                    1) Lighter
-                    2) Sneak
-                    3) Sneeze
+            System.out.println(
+                    """
+                            You edge ever closer to the beast. It's large, powerful form lay resting peacefully
+                            as you close in on it's belly.
+                    """);
+            System.out.println(
+                    """
+                            1) Lighter
+                            2) Sneak
+                            3) Sneeze
                     """);
             System.out.print(">  ");
             Scanner keyboard = new Scanner(System.in);
@@ -754,17 +782,35 @@ public class JTesting {
             switch (sneaking2)
             {
                 case 1:
-                    System.out.println("WTF ending");
+                    System.out.println(
+                            """
+                                    You approach the tail of the Dragon. Pull out your lighter and ignite their
+                                    tail. The fire catches disturbingly well. The beast screams and fails as it
+                                    begins to burn. It's scales beginning to crisp and flake off the body whilst
+                                    it slowly burns to death. You slew the beast. The dragon is no more. Some
+                                    saying it's pained howls haunting the caves forever.
+                            """);
                     sneak2=true;
-                    dragonSneak3();
+                    wtfEnding1();
                     break;
                 case 2:
-                    System.out.println("progress");
+                    System.out.println(
+                            """
+                                    You make your way under the dragon's soft, under belly.
+                            """);
                     sneak2=true;
                     dragonSneak3();
                     break;
                 case 3:
-                    System.out.println("you die");
+                    System.out.println(
+                            """
+                                    'A-A-ACHOO!' Your sneeze echos through the cave. Waking the dragon who's head
+                                    snaps to look at you. It looks at you with a level of disappointment you
+                                    normally only reserved for parents.
+                                    'Really?' The Dragon asks, before briefly getting up, and then crushing you
+                                    underneath it's large body.
+                            """);
+                    restart();
                     break;
             }
         }
@@ -774,10 +820,16 @@ public class JTesting {
         boolean sneak3=false ;
         while (!sneak3)
         {
-            System.out.println("""
-                    1) Gut
-                    2) Tickle
-                    3) Stab
+            System.out.println(
+                    """
+                            You manage to reach the soft belly of the best. The Dragon, still sleeping and
+                            unaware of your presence. Prey to your next decision.
+                    """);
+            System.out.println(
+                    """
+                            1) Gut
+                            2) Tickle
+                            3) Stab
                     """);
             System.out.print(">  ");
             Scanner keyboard = new Scanner(System.in);
@@ -785,14 +837,68 @@ public class JTesting {
             switch (sneaking3)
             {
                 case 1:
-                    System.out.println("evil endind");
+                    if (myWeapon == weapon.darkDagger){
+                        System.out.println(
+                                """
+                                        You slide your dagger into the belly and begin running. Cutting a gaping
+                                        hole in their stomach. The Dragon cries out in pain. It rolls over to 
+                                        see what happened which cause it's insides to fall out of it's body. It
+                                        gasps in horror and as the light leaves it's eyes, the last thing it sees
+                                        is the beast who did this to them. You slew the dragon, but upon taking in
+                                        the immense pile of treasure in this cave, you make a decision. You take
+                                        the Dragon's place. The village you, seemingly, set out to save is now your
+                                        victim. They now must all give their valuables and food to you. They only
+                                        live because you see fit for them to live to serve your needs. Your legend
+                                        set, as the beast who slew a dragon.
+                                """);
+                    }
+                    else if(myWeapon == weapon.lighter){
+                            System.out.println(
+                                """
+                                        You approach the tail of the Dragon. Pull out your lighter and ignite their
+                                        tail. The fire catches disturbingly well. The beast screams and fails as it
+                                        begins to burn. It's scales beginning to crisp and flake off the body whilst
+                                        it slowly burns to death. It screams in horror and the last thing it sees is
+                                        the monster who did this to them. You slew the dragon but upon taking in the
+                                        immense pile of treasure in this cave, you make a decision. You take the
+                                        Dragon's place. The village you, seemingly, set out to save is now your
+                                        victim. They now must all give their valuables and food to you. They only
+                                        live because you see fit for them to live to serve your needs. Your legend
+                                        set, as the monster who slew a dragon.
+                                """);
+                        }
+                    sneak3=true;
+                    evilEnding();
                     break;
                 case 2:
-                    System.out.println("die");
-                    sneak3=true;
+                    System.out.println(
+                            """
+                                    You begin tickling the beast. It erupts in roars of laughter! In it's
+                                    uncontrollable laughter, it rolls over and crushes you.
+                            """);
+                    restart();
                     break;
                 case 3:
-                    System.out.println("you die");
+                    if (myWeapon == weapon.darkDagger){
+                        System.out.println(
+                                """
+                                        You stab your dagger into the beast. It's head snaps up and whirls
+                                        around to face you.
+                                        'Ow!' It says, sounding heavily insulted. It blasts you with it's
+                                        lightening breath. Frying you to a crisp before returning to it's
+                                        rest.
+                                """);
+                    }
+                    else if(myWeapon == weapon.lighter){
+                        System.out.println(
+                                """
+                                        You jab the lighter into the belly of the Dragon. Nothing happens.
+                                        You try again. And again. And again and again and again. The
+                                        Dragon lets out a tired grunt and rolls over you. You suffocate
+                                        underneath it.
+                                """);
+                    }
+                    restart();
                     break;
             }
         }
