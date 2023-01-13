@@ -1149,13 +1149,17 @@ public class Main {
     * or end the game*/
     void restart() {
         System.out.println("1) Try again");
-        System.out.println("2) End game");
+        System.out.println("2) Restart game");
+        System.out.println("3) End game");
         Scanner keyboard = new Scanner(System.in);
         int restartOption = Integer.parseInt(keyboard.next());
         switch (restartOption) {
             case 1:
                 break;
             case 2:
+                game();
+                break;
+            case 3:
                 gameOver();
                 break;
         }
