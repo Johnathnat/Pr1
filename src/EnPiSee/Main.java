@@ -403,9 +403,9 @@ public class Main {
             {
                 System.out.println(
                     """
-                    1) Say hi to bats (trigger bat encounter)
-                    2) Use weapon on broken wall (progress)
-                    3) Run through dangerous cave (killed by stilagtite? Stilagmite? The pointy ceiling things. Restart option)
+                    1) Say hi to bats
+                    2) Use weapon on broken wall
+                    3) Run through dangerous cave
                     """
                 );
                 System.out.print(">  ");
@@ -443,6 +443,8 @@ public class Main {
                         case 2:
                             System.out.println("You take your weapon and break a near by wall and get away from the bats.");
                             restartEncounter = false;
+                            batAttack = false;
+                            batEncounter = true;
                             break;
                         case 3:
                             System.out.println(
@@ -505,7 +507,7 @@ public class Main {
                 1) Insult the dragon
                 2) Challenge
                 3) Drink potion
-                4) Sneak up to dragon (able to sneak behind them)                                                                                      
+                4) Sneak up to dragon                                                                                     
                 """
             );
             System.out.print(">  ");
@@ -666,7 +668,7 @@ public class Main {
             System.out.println(
                 """
                 1) Strike
-                2) Dodge");
+                2) Dodge
                 3) Leap
                 """
             );
